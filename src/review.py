@@ -1,18 +1,16 @@
 def review(config):
-    path_target = config['path_target']
-    path_source = config['path_source']
+    message = config['data'][0]['message']
 
     merge = config['merge']
-    project_id = merge['project_id']
-    merge_request_id = merge['merge_request_id']
-    
+    branch_target = merge['branch']['target']
+    branch_source = merge['branch']['source']
+
     comments = []
-    
-    # TODO IMPLEMENTAR EXTENSION
-    #  O OBJETO DE COMENTARIO DEVE POSSUIR O SEGUINTE FORMATO
-    #  {
-    #      "id": "",
-    #      "comment": ""
-    #  }
+
+    if branch_target != branch_source:
+        comments.append({
+            "id": "_",
+            "comment": message
+        })
 
     return comments
