@@ -7,7 +7,7 @@ def review(config):
 
     for rule in config['data']:
         message = rule['message'].replace("${BRANCH_TARGET}", branch_target)
-        tp_rule = rule.get('type', 'EQUALITY')
+        tp_rule = rule.get('type', 'SOURCE_TARGET_EQUALITY')
 
         if tp_rule == "SOURCE_TARGET_EQUALITY":
             if branch_target != branch_source:
